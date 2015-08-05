@@ -12,18 +12,25 @@
  )
 
 ;different greetings
+
+(defn print-greeting [greeting my-input]
+  (println greeting my-input " .This is a test!"))
+
 (do
+  (def greeting "Stranger, ")
   (println "What's your name?")
-  (let [my-input (read-line) greeting nil]
-    (when (re-find #"David" my-input)
-      (def greeting "Hola, ")
+  (let [my-input (read-line)]
+    (if (re-find #"David" my-input)
+      (with-redefs [greeting "Hola, "]
+        (print-greeting greeting my-input))
+      ;:else
+      (if (re-find #"Peter" my-input)
+        (with-redefs [greeting "Hello, "]
+          (print-greeting greeting my-input))
+        ;else
+        (print-greeting greeting my-input)
+        )
+      )
     )
-    (when (re-find #"Peter" my-input)
-      (def greeting "Hello, ")
-    )
-    (when-not greeting
-      (def greeting "Stranger, ")
-    )
-    (println greeting my-input ". Nice to meet you!")
   )
-)
+
