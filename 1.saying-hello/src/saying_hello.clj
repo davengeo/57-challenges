@@ -20,17 +20,19 @@
   (def greeting "Stranger, ")
   (println "What's your name?")
   (let [my-input (read-line)]
-    (if (re-find #"David" my-input)
-      (with-redefs [greeting "Hola, "]
-        (print-greeting greeting my-input))
-      ;else
-      (if (re-find #"Peter" my-input)
+    (cond
+      (re-find #"David" my-input)
+        (with-redefs [greeting "Hola, "]
+          (print-greeting greeting my-input))
+      (re-find #"Peter" my-input)
         (with-redefs [greeting "Hello, "]
           (print-greeting greeting my-input))
-        ;else
+      :else
         (print-greeting greeting my-input)
-        )
       )
     )
   )
+
+;refactor to extract (var greeting-map { :David "Hola", :Peter "Hello", :default "Strange"})
+
 
