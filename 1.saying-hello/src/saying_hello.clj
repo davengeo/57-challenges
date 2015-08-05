@@ -1,3 +1,5 @@
 (ns saying-hello)
+
+(println "What's your name?")
 (let [my-input (read-line)]
- (println "hello " my-input))
+     (println "Hello " my-input))
