@@ -23,7 +23,7 @@
     (if (re-find #"David" my-input)
       (with-redefs [greeting "Hola, "]
         (print-greeting greeting my-input))
-      ;:else
+      ;else
       (if (re-find #"Peter" my-input)
         (with-redefs [greeting "Hello, "]
           (print-greeting greeting my-input))
