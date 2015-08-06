@@ -1,8 +1,7 @@
 (ns greeting-hello)
 
 ;globals
-(def greetings {:spanish "Hola"
-								:english "Hello"})
+(def greetings {:spanish "Hola" :english "Hello"})
 (def surnames {:spanish '(David, Pedro)
 							 :english '(Alistair, Peter)})
 
@@ -25,4 +24,4 @@
 	)
 )
 
-;TODO: use an atom for filter the if
+;TODO: use an atom to filter the condition
