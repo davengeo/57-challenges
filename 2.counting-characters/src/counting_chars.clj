@@ -4,5 +4,4 @@
 	(let [my-input (read-line)]
 		(if (= 0 (count my-input))
 			(recur)
-			(println my-input "has" (count my-input) "characters")
-			)))
+			(println my-input "has" (count my-input) "characters."))))
