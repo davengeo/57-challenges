@@ -22,8 +22,6 @@
 		;default
 		(if (= @greeting-flag 0)
 			(print-greeting (:english greetings) my-input)
-		)
-	)
-)
+			)))
 
 ;TODO: use an atom to filter the condition
