@@ -18,6 +18,11 @@
 				(if (.contains (re-find #"(\w+)" my-input) (str iter))
 					(with-redefs [greeting (k greetings)]
 						(print-greeting greeting my-input)
-))))))
+					)
+				)
+			)
+		)
+	)
+)
 
 ;TODO: use an atom for filter the if
