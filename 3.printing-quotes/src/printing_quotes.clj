@@ -3,4 +3,4 @@
 (let [my-quote (read-line)]
 	(println "What is the author?")
 	(let [author (read-line)]
-		(println author "says" "\"" my-quote "\"")))
+		(println (str author " says " "\"" my-quote "\""))))
