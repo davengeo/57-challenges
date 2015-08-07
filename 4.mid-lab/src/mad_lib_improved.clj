@@ -1,21 +1,24 @@
 (ns mad-lib-improved)
-(println "hello")
-
 (def cases
 	(seq ["verb" "noun" "adjective" "adverb"]))
 (def breakers
-	(seq ["Did you" "your" "" ""]))
+	(seq ["Did you " "your " " " " "]))
 
 (defn get-part [part]
 	(println (str "Enter a " part "?"))
 	(read-line))
 
-(defn get-answer [coll]
+(defn get-answers [coll]
 	(for [part coll]
 		(get-part part)))
 
-(defn process [coll]
+(defn process-all [coll]
 	(for [x (range (count coll))]
 		(str (nth breakers x) (nth coll x))))
 
-(println (process (get-answer cases)))
+;(println (process-all (get-answers cases)))
+
+(->>
+	(get-answers cases)
+	(process-all)
+	(println))
