@@ -6,4 +6,8 @@
 
 (let [first-number (read-int "first")]
 	(let [second-number (read-int "second")]
-		(prn (+ first-number second-number))))
+		(println (+ first-number second-number))
+		(println (- first-number second-number))
+		(println (* first-number second-number))
+		(println (/ first-number second-number))))
+
