@@ -4,7 +4,7 @@
 	(println "What is the" pos "number?")
 	(bigint (read-line)))
 
-(def oper '(+ - * /))
+(def oper [+ - * /])
 
 (let [first-number (read-int "first")]
 	(let [second-number (read-int "second")]
