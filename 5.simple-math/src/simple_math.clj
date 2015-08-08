@@ -9,4 +9,6 @@
 (let [first-number (read-int "first")]
 	(let [second-number (read-int "second")]
 		(doseq [op oper]
-			(println (op first-number second-number)))))
+			(println (str first-number op second-number "=" (op first-number second-number))))))
+
+;how can I get the name of the function?
