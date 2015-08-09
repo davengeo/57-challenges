@@ -9,4 +9,4 @@
 (let [first (read-int "first")]
 	(let [second (read-int "second")]
 		(doseq [op oper]
-			(println (imstr first (:n op) second "=" ((:p op) first second))))))
+			(println (str first (:n op) second "=" ((:p op) first second))))))
