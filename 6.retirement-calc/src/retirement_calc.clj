@@ -1,9 +1,13 @@
 (ns retirement-calc
-  (:require
-    [clojure.instant :as instant])
   (:import (java.util Calendar)))
-(println "what is your current age?")
-(let [my-age (read-line)]
-  (prn (str (.. Calendar (getInstance) (get Calendar/YEAR)) my-age))
 
-  )
+(defn read-int [question]
+  (println question)
+  (bigint (read-line)))
+
+(def get-year
+  (.. Calendar (getInstance) (get Calendar/YEAR)))
+
+(let [my-age (read-int "What is your current age?")
+      ret-age (read-int "At what age would you like to retire?")]
+  (println "it is" (str get-year) ", but you want to wait until" (int (+ get-year (- ret-age my-age)))))
