@@ -10,4 +10,6 @@
 
 (let [my-age (read-int "What is your current age?")
       ret-age (read-int "At what age would you like to retire?")]
-  (println "it is" (str get-year) ", but you want to wait until" (int (+ get-year (- ret-age my-age)))))
+  (if (< (- ret-age my-age) 0)
+    (println "Hardies! This fellow wants to fool me")
+    (println "it is" (str get-year) ", but you want to wait until" (int (+ get-year (- ret-age my-age))))))
