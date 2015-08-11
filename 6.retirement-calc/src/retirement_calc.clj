@@ -13,3 +13,5 @@
   (if (< (- ret-age my-age) 0)
     (println "Hardies! This fellow wants to fool me")
     (println "it is" (str get-year) ", but you want to wait until" (int (+ get-year (- ret-age my-age))))))
+
+;to create another version using https://github.com/clj-time/clj-time
