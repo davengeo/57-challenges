@@ -7,5 +7,5 @@
       pizzas (read-int "How many pizzas?")
       slicing (read-int "How many slices per pizza?")]
   (println "So" people " people and" pizzas "pizzas...")
-  (println "It is " (str (quot (* pizzas slicing) people)) " slices each person.")
-  (println "There is " (str (mod (* pizzas slicing) people)) "leftovers"))
+  (println "Each person gets" (str (quot (* pizzas slicing) people)) " pieces.")
+  (println "There are" (str (mod (* pizzas slicing) people)) "leftovers"))
