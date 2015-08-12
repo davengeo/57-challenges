@@ -1,10 +1,11 @@
 (ns pizza-party)
 (defn read-int [question]
  (println question)
- (bigint (read-line)))
+ (biginteger (read-line)))
 
 (let [people (read-int "How many people?")
       pizzas (read-int "How many pizzas?")
       slicing (read-int "How many slices per pizza?")]
-  (println "So" people "with" pizzas "pizzas...")
-  (println "It is " (/ (* pizzas slicing) people) "each person."))
+  (println "So" people " people and" pizzas "pizzas...")
+  (println "It is " (str (quot (* pizzas slicing) people)) " slices each person.")
+  (println "There is " (str (mod (* pizzas slicing) people)) "leftovers"))
