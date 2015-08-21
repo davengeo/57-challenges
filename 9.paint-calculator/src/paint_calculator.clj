@@ -13,8 +13,8 @@
 (defn paint-gallons [area]
   (->>
       (/ area conversion-rate)
-      (double )
-      (rnd )))
+      (double)
+      (rnd)))
 
 (let  [length (read-int "length")
        width (read-int "width")
