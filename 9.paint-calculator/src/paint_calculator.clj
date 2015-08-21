@@ -6,9 +6,9 @@
   (bigint (read-line)))
 
 (defn rnd [num]
-  (if (= num (Math/round num))
-    (int (Math/abs num))
-    (int (+ 1 (Math/abs num)))))
+  (if (== 0 (- num (int num)))
+    (int num)
+    (int (+ 1  num))))
 
 (defn paint-gallons [area]
   (->>
