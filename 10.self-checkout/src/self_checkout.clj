@@ -1,4 +1,4 @@
- (ns self-checkout)
+(ns self-checkout)
 (def tax-rate 0.055)
 
 (defn read-about [word item-num]
