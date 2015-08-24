@@ -15,7 +15,9 @@
 
 
 (defn read-number-with-question [question]
-  (try-times 3 (do (println question) (bigint (read-line)))))
+  (try-times 3 (do
+                 (println question)
+                 (bigint (read-line)))))
 
 (let [currency (read-number-with-question "What is the number?")]
   (prn currency))
