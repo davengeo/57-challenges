@@ -1,6 +1,6 @@
 (ns currency-convertion)
 
-;using the paradigm explained in https://gist.github.com/john-kurkowski/3484356
+;using the case explained in https://gist.github.com/john-kurkowski/3484356
 (defn try-times* [times thunk]
   (let [attemps (first (drop-while #{::fail}
                                    (repeatedly times
@@ -19,7 +19,17 @@
                  (println question)
                  (bigint (read-line)))))
 
-(let [currency (read-number-with-question "What is the number?")]
-  (prn currency))
+(defn read-currency [question]
+  (try-times 3 (do
+                 (println question)
+                 (read-line))))
+
+(def conversion-rates {'eur 1.1147 'bpd 1.51695})
+
+(let [amount (read-number-with-question "How many bucks?")
+      currency (read-currency "Which currency?")]
+  (println "These are ..." (* ((symbol currency) conversion-rates) amount) "us dollars, dude"))
+
+
 
 
