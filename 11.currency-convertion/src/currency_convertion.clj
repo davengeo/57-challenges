@@ -22,15 +22,16 @@
 
 (defn read-number-with-question [question]
   (->>   #(try-times 3
-           (do
-            (println question)
-            (bigint (read-line))))
+                     (do
+                      (println question)
+                      (bigint (read-line))))
           (maybe?)))
 
-(defn read-currency [question]
-  (maybe? #(do (println question) (read-line))))
-
 (def conversion-rates {'eur 1.1147 'bpd 1.51695})
+
+(defn read-currency [question]
+  (->> #((symbol (println question) (read-line)) conversion-rates)
+       (maybe?)))
 
 (let [amount (read-number-with-question "How many bucks?")
       currency (read-currency "Which currency?")]
