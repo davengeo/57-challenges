@@ -14,15 +14,21 @@
   `(try-times* ~times (fn [] ~@thunk)))
 
 
+(defn maybe? [f & args]
+  (let [value (apply f args)]
+    (if (nil? value)
+      (System/exit -1)
+      (eval value))))
+
 (defn read-number-with-question [question]
-  (try-times 3 (do
-                 (println question)
-                 (bigint (read-line)))))
+  (->>   #(try-times 3
+           (do
+            (println question)
+            (bigint (read-line))))
+          (maybe?)))
 
 (defn read-currency [question]
-  (try-times 3 (do
-                 (println question)
-                 (read-line))))
+  (maybe? #(do (println question) (read-line))))
 
 (def conversion-rates {'eur 1.1147 'bpd 1.51695})
 
