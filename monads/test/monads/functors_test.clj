@@ -31,3 +31,6 @@
 							 (<*> u)
 							 (<*> v)
 							 (<*> w))))))
+
+(deftest applicative-property-concrete
+	(is (= '() (<*> u (<*> v w)))))
