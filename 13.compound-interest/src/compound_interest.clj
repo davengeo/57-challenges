@@ -8,7 +8,7 @@
   (reduce * (repeat n x)))
 
 (defn comp-interest [principal rate period number]
-  (* principal (expow (* number period) (+ 1 (/ rate number)))))
+  (* principal (expow (+ 1 (/ (/ rate 100) number)) (* number period))))
 
 (let [principal (read-bigdec "Enter the principal:")
       rate (read-bigdec "Enter the rate:")
