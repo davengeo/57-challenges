@@ -3,10 +3,7 @@
 (defn read-bigdec [question]
   (println question)
   (bigdec (read-line)))
-
-(defn expow [x n]
-  (reduce * (repeat n x)))
-
+1500
 (defn round2
   "Round a double to the given precision (number of significant digits)"
   [precision d]
@@ -14,7 +11,7 @@
     (/ (Math/round (* d factor)) factor)))
 
 (defn comp-interest [principal rate period number]
-  (* principal (expow (+ 1 (/ (/ rate 100) number)) (* number period))))
+  (* principal (Math/pow (+ 1 (/ (/ rate 100) number)) (* number period))))
 
 (let [principal (read-bigdec "Enter the principal:")
       rate (read-bigdec "Enter the rate:")
