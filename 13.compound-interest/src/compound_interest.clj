@@ -3,7 +3,7 @@
 (defn read-bigdec [question]
   (println question)
   (bigdec (read-line)))
-1500
+
 (defn round2
   "Round a double to the given precision (number of significant digits)"
   [precision d]
