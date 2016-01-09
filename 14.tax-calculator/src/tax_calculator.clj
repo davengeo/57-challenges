@@ -14,5 +14,5 @@
 
 (let [amount (read-bigdec "What is the order amount?")
       state (read-string "What is the state?")]
-  (println (str "The subtotal is $" amount)
-           (println (str "The tax is $" (tax amount state)))))
+  (println (str "The subtotal is $" amount))
+  (println (str "The tax is $" (tax amount state))))
