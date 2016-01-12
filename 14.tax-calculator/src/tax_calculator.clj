@@ -8,11 +8,16 @@
   (println question)
   (read-line))
 
+(def state-taxes {:WI 0.055 :LI 0.077})
+
 (defn tax [amount state]
-  (if (= "ws" state)
-    (bigdec (* amount 1, 055))))
+  (let [rate (state-taxes (keyword state))]
+    (if (= nil rate)
+      0
+      (* amount rate))))
 
 (let [amount (read-bigdec "What is the order amount?")
-      state (read-string "What is the state?")]
-  (println (str "The subtotal is $" amount))
-  (println (str "The tax is $" (tax amount state))))
+      state (read-string "What is the state?")
+      taxes (tax amount state)]
+  (println (str "The subtotal is $" amount " " state))
+  (if (> taxes 0) (println (str "The tax is $" taxes))))
