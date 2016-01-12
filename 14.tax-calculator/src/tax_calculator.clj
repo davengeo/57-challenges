@@ -12,12 +12,17 @@
 
 (defn tax [amount state]
   (let [rate (state-taxes (keyword state))]
-    (if (= nil rate)
-      0
-      (* amount rate))))
+    (if (= nil rate) 0 (* amount rate))))
 
 (let [amount (read-bigdec "What is the order amount?")
       state (read-string "What is the state?")
       taxes (tax amount state)]
-  (println (str "The subtotal is $" amount " " state))
-  (if (> taxes 0) (println (str "The tax is $" taxes))))
+
+  (if (> taxes 0)
+    (do
+      (println (str "The subtotal is $" amount))
+      (println (str "The tax is $" taxes))
+      ))
+
+  (println (str "The total is $" (+ amount taxes)))
+  )
