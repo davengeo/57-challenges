@@ -1,6 +1,6 @@
-(ns misc.core-test
+(ns misc.password-validation-test
   (:require [clojure.test :refer :all]
-            [misc.core :refer :all]))
+            [misc.password-validation :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
