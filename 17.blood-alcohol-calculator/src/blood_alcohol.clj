@@ -35,5 +35,8 @@
       bac (bac-calc alcohol weight gender last-time)]
   (println (str "alcohol:" alcohol " weight:" weight " gender:" gender " last-time:" last-time))
   (println (str "your bac is:" bac "."))
-  (if (> bac 0.08) (println "It is not legal for you to drive."))
+  (if (= bac nil)
+    (println "something went wrong")
+    (if (> bac 0.08) (println "It is not legal for you to drive."))
+  )
   )
