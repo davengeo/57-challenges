@@ -14,10 +14,18 @@
   (->> (read-input question)
        (to-int-or-nil)))
 
+(defn round2
+  "Round a double to the given precision (number of significant digits)"
+  [precision d]
+  (let [factor (Math/pow 10 precision)]
+    (/ (Math/round (* d factor)) factor)))
+
 (defn bac-calc [alcohol weight gender last-time]
   (if (= gender nil) nil
                      (let [ratio (if (= (.toLowerCase gender) "m") 0.73 0.66)]
-                       (bigdec (- (/ (* alcohol 5.14) (* weight ratio)) (* last-time 0.015)))
+                       (->> (- (/ (* alcohol 5.14) (* weight ratio)) (* last-time 0.015))
+                            (bigdec)
+                            (round2 2))
                        )))
 
 (let [alcohol (read-number "How many alcohol did you consume in oz?")
@@ -28,5 +36,4 @@
   (println (str "alcohol:" alcohol " weight:" weight " gender:" gender " last-time:" last-time))
   (println (str "your bac is:" bac "."))
   (if (> bac 0.08) (println "It is not legal for you to drive."))
-
   )
